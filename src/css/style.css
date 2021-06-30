@@ -117,7 +117,7 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 947px;
+  width: 947px;
   height: 100%;
   overflow: hidden;
 }
