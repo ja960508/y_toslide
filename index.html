@@ -10,7 +10,14 @@
   </head>
   <body>
     <header class="header">
-      <img src="" alt="logo" class="logo" />
+      <div class="logo">
+        <img
+          src="./src/images/yestoslide_all_logo.png"
+          alt="logo"
+          class="logo"
+          style="width: 100%; height: 100%"
+        />
+      </div>
       <div class="chat-box">
         <img
           src="./src/images/profile.png"
@@ -18,47 +25,94 @@
           class="profile-image"
         />
         <div class="user-name">김길동</div>
-        <div class="chat-content">          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-            suscipit fugit molestiae iure iste, quis ut officia, quibusdam quasi
-            numquam ducimus. Illo odio ipsam a deleniti consequuntur dolorum
-            pariatur? Atque.</div>
+        <div class="chat-content">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+          suscipit fugit molestiae iure iste, quis ut officia, quibusdam quasi
+          numquam ducimus. Illo odio ipsam a deleniti consequuntur dolorum
+          pariatur? Atque.
         </div>
       </div>
       <div class="tool-box">
-          <div class="slide-btn">
-              <button class="slide-back">
-                  <img src="./src/images/yesToSlide_icons/button_previous.svg" alt="slide-back">
-              </button>
-              <button class="slide-forward">
-                <img src="./src/images/yesToSlide_icons/button_next.svg" alt="slide-forward">
-              </button>
-          </div>
-          <div class="control-btn auto">
-            <button onclick="toggleSlideControlMode()" onmouseover="showSlideMode('in')" onmouseout="showSlideMode('out')">
-                <img src="./src/images/yesToSlide_icons/button_autoSlidesShow.svg" alt="slide-control" class="slide-control">
-            </button>
-            <img src="./src/images/yesToSlide_icons/ifHover_autoSlideShow.svg" alt="hover-image" class="hover-image d-none">
-          </div>
-          <button class="settings-btn">
-              <img src="./src/images/yesToSlide_icons/button_settings.svg" alt="settings">
+        <div class="slide-btn">
+          <button class="slide-back">
+            <img
+              src="./src/images/yesToSlide_icons/button_previous.svg"
+              alt="slide-back"
+            />
           </button>
-          <div class="option-btn">
-              <button class="image-colleting-btn collecting" onclick="changeImageCollectingMode()">
-                  <img src="./src/images/yesToSlide_icons/button_collecting_On.svg" alt="collecting" class="collecting-image" style="margin-right: 8px;">
-              </button>
-              <button class="image-btn">
-                <img src="./src/images/yesToSlide_icons/button_images_videos.svg" alt="collecting" class="images_videos" style="margin-right: 17px;">
-              </button>
-              <button class="participant-btn">
-                <img src="./src/images/yesToSlide_icons/button_participants.svg" alt="collecting" class="collecting">
-              </button>
-          </div>
+          <button class="slide-forward">
+            <img
+              src="./src/images/yesToSlide_icons/button_next.svg"
+              alt="slide-forward"
+            />
+          </button>
+        </div>
+        <div class="control-btn auto">
+          <button
+            onclick="toggleSlideControlMode()"
+            onmouseover="showSlideMode('in')"
+            onmouseout="showSlideMode('out')"
+          >
+            <img
+              src="./src/images/yesToSlide_icons/button_autoSlidesShow.svg"
+              alt="slide-control"
+              class="slide-control"
+            />
+          </button>
+          <img
+            src="./src/images/yesToSlide_icons/ifHover_autoSlideShow.svg"
+            alt="hover-image"
+            class="hover-image d-none"
+          />
+        </div>
+        <button class="settings-btn">
+          <img
+            src="./src/images/yesToSlide_icons/button_settings.svg"
+            alt="settings"
+          />
+        </button>
+        <div class="option-btn">
+          <button
+            class="image-colleting-btn collecting"
+            onclick="changeImageCollectingMode()"
+          >
+            <img
+              src="./src/images/yesToSlide_icons/button_collecting_On.svg"
+              alt="collecting"
+              class="collecting-image"
+              style="margin-right: 8px"
+            />
+          </button>
+          <button class="image-btn">
+            <img
+              src="./src/images/yesToSlide_icons/button_images_videos.svg"
+              alt="collecting"
+              class="images_videos"
+              style="margin-right: 17px"
+            />
+          </button>
+          <button class="participant-btn">
+            <img
+              src="./src/images/yesToSlide_icons/button_participants.svg"
+              alt="collecting"
+              class="collecting"
+            />
+          </button>
+        </div>
       </div>
     </header>
     <section class="image-section">
-      <img src="./src/images/sample.jpeg" alt="image-content" class="image-background-content" />
+      <img
+        src="./src/images/sample.jpeg"
+        alt="image-content"
+        class="image-background-content"
+      />
       <div class="cropped-image-box">
-        <img src="./src/images/sample.jpeg" alt="image-content" class="image-content" />
+        <img
+          src="./src/images/sample.jpeg"
+          alt="image-content"
+          class="image-content"
+        />
       </div>
     </section>
   </body>

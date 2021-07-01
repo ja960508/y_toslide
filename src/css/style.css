@@ -31,6 +31,11 @@ body {
   z-index: 1000;
 }
 
+.logo {
+  width: 108px;
+  height: 32px;
+}
+
 .chat-box {
   display: flex;
   width: 406px;
@@ -40,8 +45,7 @@ body {
   border-radius: 17px;
   background-color: #000000;
   position: relative;
-  left: 25%;
-  transform: translateX(-50%);
+  left: 8%;
   font-size: 16px;
   color: white;
 }
