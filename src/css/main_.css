@@ -3,6 +3,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding: 6px 7px;
 }
 
@@ -13,10 +14,37 @@
 
 .tools {
   display: flex;
+  height: 34px;
 }
 
 .tools > div {
   display: flex;
+  margin-right: 16px;
+}
+
+.slide-tools {
+  width: 198px;
+  background-image: url(../images/tool_box1/bg-control-bar.svg);
+  margin-right: 16px;
+}
+
+.slide-tools > .tool-button {
+  width: 34px;
+}
+.slide-tools > button {
+  margin-right: 1px;
+}
+
+.control-button {
+  width: 93px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.basic-tools {
+  width: 188px;
+  background-image: url(../images/tool_box2/bg-menu-bar.svg);
   margin-right: 16px;
 }
 
