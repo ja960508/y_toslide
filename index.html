@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/style.css" />
     <link rel="stylesheet" href="./src/css/main_.css" />
+    <script defer src="./src/js/index.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -19,7 +20,11 @@
       </div>
       <div class="tools">
         <div class="slide-tools">
-          <button class="tool-button">
+          <button
+            class="tool-button"
+            id="slide_back_btn"
+            onclick="handleSlideBtnClick(this.id)"
+          >
             <img
               src="./src/images/tool_box1/button-previous.svg"
               alt="slide-back"
@@ -29,7 +34,11 @@
               alt="previous_slide_hover"
             />
           </button>
-          <button class="tool-button">
+          <button
+            class="tool-button"
+            id="slide_next_btn"
+            onclick="handleSlideBtnClick(this.id)"
+          >
             <img
               src="./src/images/tool_box1/button-next.svg"
               alt="slide-forward"
@@ -39,7 +48,11 @@
               alt="next_slide_hover"
             />
           </button>
-          <button class="control-button">
+          <button
+            class="control-button manual"
+            id="slide_mode_select_btn"
+            onclick="handleSlideBtnClick(this.id)"
+          >
             <img
               src="./src/images/tool_box1/button-manual-slides-show.svg"
               alt="slide-control"
@@ -50,7 +63,11 @@
               alt="manual_hover"
             />
           </button>
-          <button class="tool-button">
+          <button
+            class="tool-button"
+            id="settings_btn"
+            onclick="handleSlideBtnClick(this.id)"
+          >
             <img
               src="./src/images/tool_box1/button-settings.svg"
               alt="settings"
@@ -62,20 +79,28 @@
           </button>
         </div>
         <div class="basic-tools">
-          <button class="collecting-button">
+          <button
+            class="collecting-button off"
+            id="collecting_btn"
+            onclick="handleBasicToolsClick(this.id)"
+          >
             <img
-              src="./src/images/tool_box2/button-collecting-off-2.svg"
+              src="./src/images/tool_box2/button_collecting_off.svg"
               alt="collecting"
               class="collecting-image"
             />
             <img
               src="./src/images/tool_box2/collecting_stop_hover.svg"
-              alt="collecting_stop_hover"
+              alt="collecting_hover"
             />
           </button>
-          <button class="tool-button">
+          <button
+            class="tool-button off"
+            id="button_openfile"
+            onclick="handleBasicToolsClick(this.id)"
+          >
             <img
-              src="./src/images/tool_box2/button-openfile-off-2.svg"
+              src="./src/images/tool_box2/button_openfile_off.svg"
               alt="button-openfile-off-2"
             />
             <img
@@ -83,9 +108,13 @@
               alt="open_files_hover"
             />
           </button>
-          <button class="tool-button">
+          <button
+            class="tool-button off"
+            id="button_images_videos"
+            onclick="handleBasicToolsClick(this.id)"
+          >
             <img
-              src="./src/images/tool_box2/button-images-videos-off-2.svg"
+              src="./src/images/tool_box2/button_images_videos_off.svg"
               alt="button-images-videos-off-2"
             />
             <img
@@ -93,9 +122,14 @@
               alt="pictures_and_videos_hover"
             />
           </button>
-          <button class="tool-button" style="margin: 0 1px">
+          <button
+            class="tool-button off"
+            id="button_makeavideo"
+            style="margin: 0 1px"
+            onclick="handleBasicToolsClick(this.id)"
+          >
             <img
-              src="./src/images/tool_box2/button-makeavideo-off-2.svg"
+              src="./src/images/tool_box2/button_makeavideo_off.svg"
               alt="button-makeavideo-off-2"
             />
             <img
@@ -103,9 +137,13 @@
               alt="make_videos_hover"
             />
           </button>
-          <button class="tool-button">
+          <button
+            class="tool-button off"
+            id="button_participants"
+            onclick="handleBasicToolsClick(this.id)"
+          >
             <img
-              src="./src/images/tool_box2/button-participants-off-2.svg"
+              src="./src/images/tool_box2/button_participants_off.svg"
               alt="button-participants-off-2"
             />
             <img
@@ -115,9 +153,13 @@
           </button>
         </div>
         <div class="lock-tools">
-          <button class="tool-button">
+          <button
+            class="tool-button off"
+            id="button_hideUI"
+            onclick="handleBasicToolsClick(this.id)"
+          >
             <img
-              src="./src/images/tool_box3/button-hideui-2.svg"
+              src="./src/images/tool_box2/button_hideUI_off.svg"
               alt="button-hideui-2"
             />
           </button>
