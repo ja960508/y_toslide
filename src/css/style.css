@@ -1,3 +1,7 @@
+:root {
+  --dusty-orange: #f28234;
+}
+
 * {
   box-sizing: border-box;
 }
