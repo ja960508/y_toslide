@@ -153,10 +153,12 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .image-box iframe {
   pointer-events: none;
+  border-radius: 26px;
 }
 
 .tool-contents {
