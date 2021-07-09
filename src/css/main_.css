@@ -87,6 +87,7 @@
   width: 100%;
   height: 100%;
   filter: blur(50px);
+  pointer-events: none;
 }
 
 .contents {
@@ -152,6 +153,10 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+}
+
+.image-box iframe {
+  pointer-events: none;
 }
 
 .tool-contents {
