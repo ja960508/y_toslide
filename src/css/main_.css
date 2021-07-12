@@ -84,8 +84,8 @@
 
 .main-background-image {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 1920px;
+  height: 947px;
   filter: blur(50px);
   pointer-events: none;
 }
@@ -125,15 +125,22 @@
   position: relative;
 }
 
+.profile {
+  width: 34px;
+  height: 34px;
+  margin-right: 8px;
+}
+
 .profile img {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  margin-right: 8px;
 }
 
 .name {
+  font-size: 18px;
   margin-right: 8px;
+  font-weight: bold;
 }
 
 .chat-content {
@@ -141,11 +148,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .image-box {
   min-width: 1463px;
-  min-height: 830px;
+  min-height: 823px;
   width: 76vw;
   height: 76vh;
   border-radius: 26px;

@@ -56,20 +56,15 @@ function handleSlideBtnClick(btn) {
       const image = selectedBtn.querySelectorAll('img');
 
       if (selectedBtn.classList.contains('manual')) {
-        image[0].src = `./src/images/tool_box1/button-selected-slides-show.svg`;
-        image[1].src = `./src/images/tool_box1/manual_hover.svg`;
-        selectedBtn.classList.toggle('manual');
-        selectedBtn.classList.toggle('selected');
-      } else if (selectedBtn.classList.contains('selected')) {
         image[0].src = `./src/images/tool_box1/button_slide_auto.svg`;
         image[1].src = `./src/images/tool_box1/auto_hover.svg`;
-        selectedBtn.classList.toggle('selected');
+        selectedBtn.classList.toggle('manual');
         selectedBtn.classList.toggle('auto');
       } else {
         image[0].src = `./src/images/tool_box1/button-manual-slides-show.svg`;
         image[1].src = `./src/images/tool_box1/manual_hover.svg`;
-        selectedBtn.classList.toggle('auto');
         selectedBtn.classList.toggle('manual');
+        selectedBtn.classList.toggle('auto');
       }
       break;
     case 'settings_btn':
