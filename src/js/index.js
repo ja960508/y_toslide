@@ -42,6 +42,9 @@ function openToolSection(target) {
 }
 
 function hideUI() {
+  const toolbox = document.querySelector('.tool-contents');
+  toolbox.classList.contains('open') && toolbox.classList.remove('open');
+
   document.querySelector('.attendance-iframe').src = '';
   document.querySelector('header').classList.toggle('hide-mode');
   document.querySelector('main').classList.toggle('hide-mode');
