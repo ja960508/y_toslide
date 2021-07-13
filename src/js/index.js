@@ -42,8 +42,9 @@ function openToolSection(target) {
 }
 
 function hideUI() {
-  document.querySelector('.header').classList.toggle('hide-mode');
-  document.querySelector('.main').classList.toggle('hide-mode');
+  document.querySelector('.attendance-iframe').src = '';
+  document.querySelector('header').classList.toggle('hide-mode');
+  document.querySelector('main').classList.toggle('hide-mode');
   document.querySelector('.slide-tools').classList.toggle('hide-mode');
   document.querySelector('.basic-tools').classList.toggle('hide-mode');
 }
