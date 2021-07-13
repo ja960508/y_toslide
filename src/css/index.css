@@ -1,0 +1,197 @@
+.header {
+  position: relative;
+  display: flex;
+  width: 1920px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 7px;
+  z-index: 500;
+}
+
+.header.hide-mode {
+  position: absolute;
+}
+
+.logo-image {
+  width: 153px;
+  height: 61px;
+}
+
+.tools {
+  position: relative;
+  display: flex;
+  height: 34px;
+}
+
+.tools > div {
+  display: flex;
+  margin-right: 16px;
+}
+
+.slide-tools {
+  width: 198px;
+  background-image: url(../images/tool_box1/bg-control-bar.svg);
+  margin-right: 16px;
+}
+.slide-tools.hide-mode {
+  display: none;
+}
+
+.tool-button {
+  width: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tools > div > button img:first-child {
+  margin-bottom: 11px;
+}
+.tools img:nth-child(2) {
+  display: none;
+}
+.tools > div > button:hover img:nth-child(2) {
+  display: block;
+}
+.tools > div > button:hover {
+  border-radius: 26px;
+  background-color: rgba(242, 130, 52, 0.2);
+}
+
+.option-toggle {
+  position: absolute;
+  top: 45px;
+  left: 109px;
+  width: 343px;
+  height: 114px;
+  background-image: url('../images/tool_box1/option_background_pc.svg');
+
+  font-size: 12px;
+}
+.option-toggle.off {
+  display: none;
+}
+
+.option-toggle label {
+  display: flex;
+  cursor: pointer;
+}
+
+.check_img {
+  width: 16px;
+  height: 16px;
+  background-image: url('../images/check_off.svg');
+}
+input[type='checkbox']:checked + label .check_img {
+  background-image: url('../images/check_on.png');
+}
+
+.check-box-options {
+  height: 61px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 18px;
+  padding-top: 10px;
+}
+.check-box-options span {
+  display: flex;
+  align-items: center;
+  margin-right: 9px;
+}
+
+.check-box-options input {
+  display: none;
+}
+.background-mode-options {
+  border-top: 1px solid lightgray;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.background-mode-options span {
+  margin-right: 6px;
+  white-space: nowrap;
+}
+.background-mode-btn {
+  width: 91px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+
+.background-mode-btn.blur {
+  border-radius: 26px 0 0 26px;
+}
+.background-mode-btn.white {
+  border-radius: 0 26px 26px 0;
+}
+.background-mode-btn.selected {
+  color: white;
+  background-color: #f28234;
+}
+
+.slide-tools > button {
+  margin-right: 1px;
+}
+
+.control-button {
+  width: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collecting-button {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basic-tools {
+  width: 188px;
+  background-image: url(../images/tool_box2/bg-menu-bar.svg);
+  margin-right: 16px;
+}
+.basic-tools.hide-mode {
+  display: none;
+}
+
+.background-box {
+  width: 100vw;
+  height: 100vh;
+  min-width: 1920px;
+  min-height: 947px;
+  position: absolute;
+  overflow: hidden;
+  background-color: white;
+}
+
+.main-background-image {
+  width: 1920px;
+  height: 1080px;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.tool-contents {
+  position: relative;
+  min-width: 375px;
+  min-height: 830px;
+  height: 76vh;
+  margin-left: 16px;
+  display: none;
+}
+
+.tool-contents.open {
+  display: block;
+}
+
+.attendance-iframe {
+  margin-left: 16px;
+  width: 100%;
+  height: 100%;
+}

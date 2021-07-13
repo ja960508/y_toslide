@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/style.css" />
-    <link rel="stylesheet" href="./src/css/main_.css" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
     <script defer src="./src/js/index.js"></script>
+    <script defer src="./src/js/background_control.js"></script>
     <title>Document</title>
   </head>
   <body>
-    <iframe
-      src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?slide=id.SLIDES_API33984906_0&rm=minimal"
-      frameborder="0"
-      allowfullscreen="true"
-      mozallowfullscreen="true"
-      webkitallowfullscreen="true"
-      class="main-background-image"
-    ></iframe>
+    <div class="background-box" id="background_box">
+      <iframe
+        src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?slide=id.SLIDES_API33984906_0&rm=minimal"
+        frameborder="0"
+        allowfullscreen="true"
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        class="main-background-image"
+        id="background_image_content"
+      ></iframe>
+    </div>
     <header class="header">
       <div class="logo">
         <img
@@ -85,6 +90,55 @@
               alt="settings_hover"
             />
           </button>
+          <div class="option-toggle off">
+            <div class="check-box-options">
+              <span>
+                <input id="check_sound" type="checkbox" />
+                <label for="check_sound">
+                  <span>소리 알림</span>
+                  <div class="check_img"></div>
+                </label>
+              </span>
+              <span>
+                <input id="check_anonymous" type="checkbox" />
+                <label for="check_anonymous">
+                  <span>익명 표시</span>
+                  <div class="check_img"></div>
+                </label>
+              </span>
+              <span>
+                <input id="check_message" type="checkbox" />
+                <label for="check_message">
+                  <span>메시지 게시</span>
+                  <div class="check_img"></div>
+                </label>
+              </span>
+            </div>
+            <div class="background-mode-options">
+              <span>배경</span>
+              <button
+                class="background-mode-btn selected blur"
+                id="background_blur"
+                onclick="changeBackground(this.id)"
+              >
+                블러
+              </button>
+              <button
+                class="background-mode-btn black"
+                id="background_black"
+                onclick="changeBackground(this.id)"
+              >
+                검은색
+              </button>
+              <button
+                class="background-mode-btn white"
+                id="background_white"
+                onclick="changeBackground(this.id)"
+              >
+                하얀색
+              </button>
+            </div>
+          </div>
         </div>
         <div class="basic-tools">
           <button
@@ -189,17 +243,15 @@
           </span>
         </div>
         <div class="image-box">
-          <div class="iframe-box">
-            <iframe
-              src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?rm=minimal&slide=id.SLIDES_API33984906_0"
-              frameborder="0"
-              allowfullscreen="true"
-              mozallowfullscreen="true"
-              webkitallowfullscreen="true"
-              width="1440px"
-              height="810px"
-            ></iframe>
-          </div>
+          <iframe
+            src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?rm=minimal&slide=id.SLIDES_API33984906_0"
+            frameborder="0"
+            allowfullscreen="true"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            class="image-content"
+            id="image_content"
+          ></iframe>
         </div>
       </div>
       <div class="tool-contents">
