@@ -1,6 +1,9 @@
 .main {
-  width: 1920px;
-  height: 823px;
+  width: 100vw;
+  height: 76vh;
+  min-width: 1920px;
+  min-height: 823px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,10 +72,8 @@
 }
 
 .image-box {
-  min-width: 1463px;
-  min-height: 823px;
-  width: 76vw;
-  height: 76vh;
+  width: 1463px;
+  height: 823px;
   border-radius: 26px;
   overflow: hidden;
 }
