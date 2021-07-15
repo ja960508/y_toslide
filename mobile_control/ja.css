@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+.iframe-cotents {
+    width: 100%;
+    height: 100%;
+}
+
+.content_box {
+    width: 100%;
+    height: 828px;
+}
