@@ -24,208 +24,210 @@
         id="background_image_content"
       ></iframe>
     </div>
-    <header class="header">
-      <div class="logo">
-        <img
-          src="./src/images/yestoslide_all_logo.png"
-          alt="logo-image"
-          class="logo-image"
-        />
-      </div>
-      <div class="tools">
-        <div class="slide-tools">
-          <button
-            class="tool-button"
-            id="slide_back_btn"
-            onclick="handleSlideBtnClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box1/button-previous.svg"
-              alt="slide-back"
-            />
-            <img
-              src="./src/images/tool_box1/previous_slide_hover.svg"
-              alt="previous_slide_hover"
-            />
-          </button>
-          <button
-            class="tool-button"
-            id="slide_next_btn"
-            onclick="handleSlideBtnClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box1/button-next.svg"
-              alt="slide-forward"
-            />
-            <img
-              src="./src/images/tool_box1/next_slide_hover.svg"
-              alt="next_slide_hover"
-            />
-          </button>
-          <button
-            class="control-button manual"
-            id="slide_mode_select_btn"
-            onclick="handleSlideBtnClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box1/button-manual-slides-show.svg"
-              alt="slide-control"
-              class="slide-control"
-            />
-            <img
-              src="./src/images/tool_box1/manual_hover.svg"
-              alt="manual_hover"
-            />
-          </button>
-          <button
-            class="tool-button"
-            id="settings_btn"
-            onclick="handleSlideBtnClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box1/button-settings.svg"
-              alt="settings"
-            />
-            <img
-              src="./src/images/tool_box1/settings_hover.svg"
-              alt="settings_hover"
-            />
-          </button>
-          <div class="option-toggle off">
-            <div class="check-box-options">
-              <span>
-                <input id="check_sound" type="checkbox" />
-                <label for="check_sound">
-                  <span>소리 알림</span>
-                  <div class="check_img"></div>
-                </label>
-              </span>
-              <span>
-                <input id="check_anonymous" type="checkbox" />
-                <label for="check_anonymous">
-                  <span>익명 표시</span>
-                  <div class="check_img"></div>
-                </label>
-              </span>
-              <span>
-                <input id="check_message" type="checkbox" checked="checked" />
-                <label for="check_message">
-                  <span>메시지 게시</span>
-                  <div class="check_img"></div>
-                </label>
-              </span>
-            </div>
-            <div class="background-mode-options">
-              <span>배경</span>
-              <button
-                class="background-mode-btn selected blur"
-                id="background_blur"
-                onclick="changeBackground(this.id)"
-              >
-                블러
-              </button>
-              <button
-                class="background-mode-btn black"
-                id="background_black"
-                onclick="changeBackground(this.id)"
-              >
-                검은색
-              </button>
-              <button
-                class="background-mode-btn white"
-                id="background_white"
-                onclick="changeBackground(this.id)"
-              >
-                하얀색
-              </button>
+    <header class="header-wrap">
+      <div class="header">
+        <div class="logo">
+          <img
+            src="./src/images/yestoslide_all_logo.png"
+            alt="logo-image"
+            class="logo-image"
+          />
+        </div>
+        <div class="tools">
+          <div class="slide-tools">
+            <button
+              class="tool-button"
+              id="slide_back_btn"
+              onclick="handleSlideBtnClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box1/button-previous.svg"
+                alt="slide-back"
+              />
+              <img
+                src="./src/images/tool_box1/previous_slide_hover.svg"
+                alt="previous_slide_hover"
+              />
+            </button>
+            <button
+              class="tool-button"
+              id="slide_next_btn"
+              onclick="handleSlideBtnClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box1/button-next.svg"
+                alt="slide-forward"
+              />
+              <img
+                src="./src/images/tool_box1/next_slide_hover.svg"
+                alt="next_slide_hover"
+              />
+            </button>
+            <button
+              class="control-button manual"
+              id="slide_mode_select_btn"
+              onclick="handleSlideBtnClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box1/button-manual-slides-show.svg"
+                alt="slide-control"
+                class="slide-control"
+              />
+              <img
+                src="./src/images/tool_box1/manual_hover.svg"
+                alt="manual_hover"
+              />
+            </button>
+            <button
+              class="tool-button"
+              id="settings_btn"
+              onclick="handleSlideBtnClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box1/button-settings.svg"
+                alt="settings"
+              />
+              <img
+                src="./src/images/tool_box1/settings_hover.svg"
+                alt="settings_hover"
+              />
+            </button>
+            <div class="option-toggle off">
+              <div class="check-box-options">
+                <span>
+                  <input id="check_sound" type="checkbox" />
+                  <label for="check_sound">
+                    <span>소리 알림</span>
+                    <div class="check_img"></div>
+                  </label>
+                </span>
+                <span>
+                  <input id="check_anonymous" type="checkbox" />
+                  <label for="check_anonymous">
+                    <span>익명 표시</span>
+                    <div class="check_img"></div>
+                  </label>
+                </span>
+                <span>
+                  <input id="check_message" type="checkbox" checked="checked" />
+                  <label for="check_message">
+                    <span>메시지 게시</span>
+                    <div class="check_img"></div>
+                  </label>
+                </span>
+              </div>
+              <div class="background-mode-options">
+                <span>배경</span>
+                <button
+                  class="background-mode-btn selected blur"
+                  id="background_blur"
+                  onclick="changeBackground(this.id)"
+                >
+                  블러
+                </button>
+                <button
+                  class="background-mode-btn black"
+                  id="background_black"
+                  onclick="changeBackground(this.id)"
+                >
+                  검은색
+                </button>
+                <button
+                  class="background-mode-btn white"
+                  id="background_white"
+                  onclick="changeBackground(this.id)"
+                >
+                  하얀색
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="basic-tools">
-          <button
-            class="collecting-button off"
-            id="collecting_btn"
-            onclick="handleBasicToolsClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box2/button_collecting_off.svg"
-              alt="collecting"
-              class="collecting-image"
-            />
-            <img
-              src="./src/images/tool_box2/collecting_stop_hover.svg"
-              alt="collecting_hover"
-            />
-          </button>
-          <button
-            class="tool-button section-tool-btn off"
-            id="button_openfile"
-            onclick="handleBasicToolsClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box2/button_openfile_off.svg"
-              alt="button-openfile-off-2"
-            />
-            <img
-              src="./src/images/tool_box2/open_files_hover.svg"
-              alt="open_files_hover"
-            />
-          </button>
-          <button
-            class="tool-button section-tool-btn off"
-            id="button_images_videos"
-            onclick="handleBasicToolsClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box2/button_images_videos_off.svg"
-              alt="button-images-videos-off-2"
-            />
-            <img
-              src="./src/images/tool_box2/pictures_and_videos_hover.svg"
-              alt="pictures_and_videos_hover"
-            />
-          </button>
-          <button
-            class="tool-button section-tool-btn off"
-            id="button_makeavideo"
-            style="margin: 0 1px"
-            onclick="handleBasicToolsClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box2/button_makeavideo_off.svg"
-              alt="button-makeavideo-off-2"
-            />
-            <img
-              src="./src/images/tool_box2/make_videos_hover.svg"
-              alt="make_videos_hover"
-            />
-          </button>
-          <button
-            class="tool-button section-tool-btn off"
-            id="button_participants"
-            onclick="handleBasicToolsClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box2/button_participants_off.svg"
-              alt="button-participants-off-2"
-            />
-            <img
-              src="src/images/tool_box2/participants_hover.svg"
-              alt="participants_hover"
-            />
-          </button>
-        </div>
-        <div class="lock-tools">
-          <button
-            class="tool-button off"
-            id="button_hideUI"
-            onclick="handleBasicToolsClick(this.id)"
-          >
-            <img
-              src="./src/images/tool_box2/button_hideUI_off.svg"
-              alt="button-hideui-2"
-            />
-          </button>
+          <div class="basic-tools">
+            <button
+              class="collecting-button off"
+              id="collecting_btn"
+              onclick="handleBasicToolsClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box2/button_collecting_off.svg"
+                alt="collecting"
+                class="collecting-image"
+              />
+              <img
+                src="./src/images/tool_box2/collecting_stop_hover.svg"
+                alt="collecting_hover"
+              />
+            </button>
+            <button
+              class="tool-button section-tool-btn off"
+              id="button_openfile"
+              onclick="handleBasicToolsClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box2/button_openfile_off.svg"
+                alt="button-openfile-off-2"
+              />
+              <img
+                src="./src/images/tool_box2/open_files_hover.svg"
+                alt="open_files_hover"
+              />
+            </button>
+            <button
+              class="tool-button section-tool-btn off"
+              id="button_images_videos"
+              onclick="handleBasicToolsClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box2/button_images_videos_off.svg"
+                alt="button-images-videos-off-2"
+              />
+              <img
+                src="./src/images/tool_box2/pictures_and_videos_hover.svg"
+                alt="pictures_and_videos_hover"
+              />
+            </button>
+            <button
+              class="tool-button section-tool-btn off"
+              id="button_makeavideo"
+              style="margin: 0 1px"
+              onclick="handleBasicToolsClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box2/button_makeavideo_off.svg"
+                alt="button-makeavideo-off-2"
+              />
+              <img
+                src="./src/images/tool_box2/make_videos_hover.svg"
+                alt="make_videos_hover"
+              />
+            </button>
+            <button
+              class="tool-button section-tool-btn off"
+              id="button_participants"
+              onclick="handleBasicToolsClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box2/button_participants_off.svg"
+                alt="button-participants-off-2"
+              />
+              <img
+                src="src/images/tool_box2/participants_hover.svg"
+                alt="participants_hover"
+              />
+            </button>
+          </div>
+          <div class="lock-tools">
+            <button
+              class="tool-button off"
+              id="button_hideUI"
+              onclick="handleBasicToolsClick(this.id)"
+            >
+              <img
+                src="./src/images/tool_box2/button_hideUI_off.svg"
+                alt="button-hideui-2"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </header>
