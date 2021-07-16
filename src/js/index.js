@@ -246,6 +246,9 @@ function handleBasicToolsClick(btn) {
         images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
         selectedBtn.classList.toggle('off');
       }
+
+      // modal
+      modalOn();
       break;
 
     case 'button_openfile':
@@ -291,4 +294,32 @@ function handleCheckboxEvent(id) {
 
       break;
   }
+}
+
+function modalOn() {
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const modal = document.querySelector('.modal');
+
+  modalOverlay.style.display = 'flex';
+  modal.style.display = 'flex';
+}
+
+function modalOff() {
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const modal = document.querySelector('.modal');
+
+  modalOverlay.style.display = 'none';
+  modal.style.display = 'none';
+}
+
+function handleModalSubmit(e) {
+  e.preventDefault();
+
+  if (e.currentTarget.id === 'modal_cancle') {
+    console.log('cancle');
+  } else {
+    console.log('submit');
+  }
+
+  modalOff();
 }

@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+input {
+  all: unset;
+}
+
 button {
   all: unset;
   cursor: pointer;
