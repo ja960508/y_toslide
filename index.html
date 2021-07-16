@@ -10,8 +10,15 @@
     <link rel="stylesheet" href="./src/css/main.css" />
     <script defer src="./src/js/index.js"></script>
     <script defer src="./src/js/background_control.js"></script>
-    <title>Document</title>
+    
   </head>
+  <style>
+    body {
+          position: absolute;
+          top: 0; bottom: 0; left: 0; right: 0;
+          height: 100%;
+        }
+  </style>
   <body>
     <div class="background-box" id="background_box">
       <iframe
@@ -24,8 +31,8 @@
         id="background_image_content"
       ></iframe>
     </div>
-    <header class="header-wrap">
-      <div class="header">
+    <center>
+      <header class="header" style="width: 1920px;">
         <div class="logo">
           <img
             src="./src/images/yestoslide_all_logo.png"
@@ -229,25 +236,23 @@
             </button>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </center>
+
     <main class="main">
       <div class="contents">
-        <div class="chat-box">
+        <div class="chat-box" id="chat_boxID" >
           <span class="profile">
-            <img src="./src/images/profile.png" alt="profile" />
+            <img id="chat_profileID" src="./src/images/profile.png" alt="profile" />
           </span>
-          <span class="name">김길동</span>
-          <span class="chat-content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-            commodi accusantium quia veniam aut quod nostrum totam sapiente
-            doloremque ad ratione cupiditate quae dolores obcaecati aspernatur,
-            mollitia laborum maxime hic!
+          <span class="name" id="chat_box_name"></span>
+          <span class="chat-content" id="chat_box_comment">
+            
           </span>
         </div>
         <div class="image-box">
           <iframe
-            src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?rm=minimal&slide=id.SLIDES_API33984906_0"
+            src=""
             frameborder="0"
             allowfullscreen="true"
             mozallowfullscreen="true"
@@ -258,7 +263,9 @@
         </div>
       </div>
       <div class="tool-contents">
-        <iframe src="" class="attendance-iframe" frameborder="0"></iframe>
+        <iframe src="../tunggary/attendance.html" id="attendance_collection" class="attendance-iframe" style="display: none;" frameborder="0"></iframe>
+        <iframe src="../tunggary/image.html" id="img_collection" class="images-iframe" style="display: none;" frameborder="0"></iframe>
+        <iframe src="../tunggary/file.html" id="presentation_collection"  class="folders-iframe" style="display: none;" frameborder="0"></iframe>
       </div>
     </main>
   </body>
