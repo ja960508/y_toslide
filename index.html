@@ -10,14 +10,16 @@
     <link rel="stylesheet" href="./src/css/main.css" />
     <script defer src="./src/js/index.js"></script>
     <script defer src="./src/js/background_control.js"></script>
-    
   </head>
   <style>
     body {
-          position: absolute;
-          top: 0; bottom: 0; left: 0; right: 0;
-          height: 100%;
-        }
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+    }
   </style>
   <body>
     <div class="background-box" id="background_box">
@@ -32,7 +34,7 @@
       ></iframe>
     </div>
     <center>
-      <header class="header" style="width: 1920px;">
+      <header class="header" style="width: 1920px">
         <div class="logo">
           <img
             src="./src/images/yestoslide_all_logo.png"
@@ -102,21 +104,34 @@
             <div class="option-toggle off">
               <div class="check-box-options">
                 <span>
-                  <input id="check_sound" type="checkbox" />
+                  <input
+                    id="check_sound"
+                    type="checkbox"
+                    onclick="handleCheckboxEvent(this.id)"
+                  />
                   <label for="check_sound">
                     <span>소리 알림</span>
                     <div class="check_img"></div>
                   </label>
                 </span>
                 <span>
-                  <input id="check_anonymous" type="checkbox" />
+                  <input
+                    id="check_anonymous"
+                    type="checkbox"
+                    onclick="handleCheckboxEvent(this.id)"
+                  />
                   <label for="check_anonymous">
                     <span>익명 표시</span>
                     <div class="check_img"></div>
                   </label>
                 </span>
                 <span>
-                  <input id="check_message" type="checkbox" checked="checked" />
+                  <input
+                    id="check_message"
+                    type="checkbox"
+                    checked="checked"
+                    onclick="handleCheckboxEvent(this.id)"
+                  />
                   <label for="check_message">
                     <span>메시지 게시</span>
                     <div class="check_img"></div>
@@ -241,14 +256,16 @@
 
     <main class="main">
       <div class="contents">
-        <div class="chat-box" id="chat_boxID" >
+        <div class="chat-box" id="chat_boxID">
           <span class="profile">
-            <img id="chat_profileID" src="./src/images/profile.png" alt="profile" />
+            <img
+              id="chat_profileID"
+              src="./src/images/profile.png"
+              alt="profile"
+            />
           </span>
           <span class="name" id="chat_box_name"></span>
-          <span class="chat-content" id="chat_box_comment">
-            
-          </span>
+          <span class="chat-content" id="chat_box_comment"> </span>
         </div>
         <div class="image-box">
           <iframe
@@ -263,9 +280,27 @@
         </div>
       </div>
       <div class="tool-contents">
-        <iframe src="../tunggary/attendance.html" id="attendance_collection" class="attendance-iframe" style="display: none;" frameborder="0"></iframe>
-        <iframe src="../tunggary/image.html" id="img_collection" class="images-iframe" style="display: none;" frameborder="0"></iframe>
-        <iframe src="../tunggary/file.html" id="presentation_collection"  class="folders-iframe" style="display: none;" frameborder="0"></iframe>
+        <iframe
+          src="../tunggary/attendance.html"
+          id="attendance_collection"
+          class="attendance-iframe"
+          style="display: none"
+          frameborder="0"
+        ></iframe>
+        <iframe
+          src="../tunggary/image.html"
+          id="img_collection"
+          class="images-iframe"
+          style="display: none"
+          frameborder="0"
+        ></iframe>
+        <iframe
+          src="../tunggary/file.html"
+          id="presentation_collection"
+          class="folders-iframe"
+          style="display: none"
+          frameborder="0"
+        ></iframe>
       </div>
     </main>
   </body>
