@@ -196,13 +196,10 @@ function handleSlideBtnClick(btn) {
 
 function handleBasicToolsClick(btn) {
   try {
-    /*
-    if(  parent.sunny == null  || !parent.sunny.is_ready_for_everything())
-    {
-      alert("not11 ready yet");
+    if (parent.sunny == null || !parent.sunny.is_ready_for_everything()) {
+      alert('not ready yet');
       return;
     }
-    */
   } catch (err) {}
 
   switch (btn) {
@@ -210,45 +207,49 @@ function handleBasicToolsClick(btn) {
       const selectedBtn = document.querySelector(`#${btn}`);
       const images = selectedBtn.querySelectorAll('img');
       if (selectedBtn.classList.contains('off')) {
-        /*
-        images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
-        images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
-        selectedBtn.classList.toggle('off');
-        */
-
-        var r = confirm('Start new collecting?');
+        var r = confirm('start collecting?');
         if (r == true) {
+          images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
+          images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
+          selectedBtn.classList.toggle('off');
           try {
             parent.document
               .getElementById('sunny_spinner')
               .classList.remove('d-none');
-            parent.sunny.createNewSlides(function (rst) {
-              if (rst) {
-                document.getElementById('image_content').src = '';
-                images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
-                images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
-                selectedBtn.classList.toggle('off');
+            document.getElementById('image_content').src = '';
+            //parent.sunny.createNewPresentaion(function(rst){
+            //if(rst)
+            //{
+            //  document.getElementById("image_content").src = "";
 
-                setTimeout(
-                  parent.check_login_status_for_both_google_and_firebase,
-                  3000
-                );
-              } else {
-                alert('fail to create slides');
-              }
-            });
+            //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
+            //}
+            ///else
+            //{
+            //  alert("fail to create slides");
+            //}
+
+            //});
+            setTimeout(
+              parent.check_login_status_for_both_google_and_firebase,
+              1000
+            );
           } catch (err) {}
         } else {
           return;
         }
       } else {
-        images[0].src = `./src/images/tool_box2/button_collecting_off.svg`;
-        images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
-        selectedBtn.classList.toggle('off');
+        var r = confirm('stop collecting?');
+        if (r == true) {
+          images[0].src = `./src/images/tool_box2/button_collecting_off.svg`;
+          images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
+          selectedBtn.classList.toggle('off');
+          parent.sunny.stop_collecting();
+        } else {
+          return;
+        }
       }
 
-      // modal
-      modalOn();
       break;
 
     case 'button_openfile':
