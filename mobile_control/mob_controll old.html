@@ -18,7 +18,6 @@
     <script defer src="mob_controll2.js"></script>
     <title>mob controll</title>
   </head>
-
   <body>
     <div class="whole_box">
       <div class="top_box">
@@ -38,73 +37,20 @@
       </div>
       <div class="content_box">
         <div class="frame-box tool-contents">
-          <iframe
-            class="iframe-cotents"
-            id="img_collection"
-            src="../../tunggary/image.html"
-            frameborder="0"
-            scrolling="no"
-          ></iframe>
-          <iframe
-            class="iframe-cotents"
-            id="attendance_collection"
-            src="../../tunggary/attendance.html"
-            style="display: none"
-            frameborder="0"
-          ></iframe>
-          <iframe
-            class="iframe-cotents"
-            id="presentation_collection"
-            src="../../tunggary/file.html"
-            style="display: none"
-            frameborder="0"
-          ></iframe>
+          <iframe class="iframe-cotents" id="img_collection"  src="../../tunggary/image.html" frameborder="0"    ></iframe>
+          <iframe class="iframe-cotents" id="attendance_collection" src="../../tunggary/attendance.html"  style="display: none;" frameborder="0"></iframe>
+          <iframe class="iframe-cotents" id="presentation_collection" src="../../tunggary/file.html"    style="display: none;" frameborder="0"></iframe>
 
           <!--
             <div class="tool-contents">
             
           </div>
           -->
+          
         </div>
       </div>
       <div class="bottom_box">
         <div class="controll_box">
-          <div class="option_bottom off">
-            <div class="option_bottom_contents0">
-              <span>
-                <input id="check_sound" type="checkbox" />
-                <label for="check_sound">
-                  <span>소리 알림</span>
-                  <div class="check_img"></div>
-                </label>
-              </span>
-              <span>
-                <input id="check_message" type="checkbox" checked="checked" />
-                <label for="check_message">
-                  <span>메시지 게시</span>
-                  <div class="check_img"></div>
-                </label>
-              </span>
-              <span>
-                <select
-                  class="background-select"
-                  name="background"
-                  id="background_mode"
-                >
-                  <option value="black">검은색</option>
-                  <option value="white">하얀색</option>
-                  <option value="blur">블러</option>
-                </select>
-              </span>
-            </div>
-            <div class="option_bottom_contents1">
-              <label>
-                AUTO 슬라이드쇼 간격
-                <input type="number" />
-                초
-              </label>
-            </div>
-          </div>
           <div class="white_box">
             <div
               class="collect_btn"
@@ -143,12 +89,68 @@
           </div>
 
           <div class="manual_btn"></div>
-          <div
-            class="setting_btn"
-            id="setting_btn"
-            onclick="openToolContents(this.id)"
-          >
+          <div class="setting_btn">
             <img src="mob_controll_img/m_settings_off@2x.png" alt="off" />
+            <div class="option_box">
+              <div class="option_top">
+                <img
+                  src="./mob_controll_img/소리 알림@2x.png"
+                  style="width: 47px; margin-left: 18px; margin-right: 9px"
+                  alt=""
+                />
+                <input type="checkbox" id="a1" />
+                <label for="a1"></label>
+                <div style="width: 44px"></div>
+                <img
+                  src="./mob_controll_img/익명 표시@2x.png"
+                  style="width: 47px; margin-right: 9px"
+                  alt=""
+                />
+                <input type="checkbox" id="a2" />
+                <label for="a2"></label>
+                <div style="width: 10px"></div>
+                <img
+                  src="./mob_controll_img/메시지 게시@2x.png"
+                  style="width: 84px; margin-right: 9px"
+                  alt=""
+                />
+                <input type="checkbox" id="a3" />
+                <label for="a3"></label>
+              </div>
+              <div class="option_bottom">
+                <img
+                  src="./mob_controll_img/배경@2x.png"
+                  style="
+                    width: 27px;
+                    height: 15px;
+                    margin-left: 20px;
+                    margin-top: 4px;
+                  "
+                  alt=""
+                />
+                <div class="background_blur">
+                  <input
+                    type="radio"
+                    id="set_color1"
+                    name="background_color"
+                  /><label for="set_color1"></label>
+                </div>
+                <div class="background_black">
+                  <input
+                    type="radio"
+                    id="set_color2"
+                    name="background_color"
+                  /><label for="set_color2"></label>
+                </div>
+                <div class="background_white">
+                  <input
+                    type="radio"
+                    id="set_color3"
+                    name="background_color"
+                  /><label for="set_color3"></label>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="holding">
             <img src="mob_controll_img/m_button_showui@2x.png" alt="" />
@@ -161,5 +163,7 @@
         </div>
       </div>
     </div>
+    
+    
   </body>
 </html>
