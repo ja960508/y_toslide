@@ -8,61 +8,50 @@
     <link rel="stylesheet" href="./src/css/index.css" />
     <link rel="stylesheet" href="./src/css/header.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
-    <link rel="stylesheet" href="./src/css/modal.css" />
-
     <script defer src="./src/js/index.js"></script>
     <script defer src="./src/js/background_control.js"></script>
+    
   </head>
   <style>
     body {
+          position: absolute;
+          top: 0; bottom: 0; left: 0; right: 0;
+          height: 100%;
+          
+        }
+    .background-image_v2 {
       position: absolute;
-      top: 0;
-      bottom: 0;
       left: 0;
       right: 0;
+      z-index: -1;
+      display: block;
+      background-image: url('');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
       height: 100%;
+      -webkit-filter: blur(80px);
+      -moz-filter: blur(80px);
+      -o-filter: blur(80px);
+      -ms-filter: blur(80px);
+      filter: blur(80px);
+      
     }
+
   </style>
-  <body>
-    <div class="modal-overlay" style="display: none">
-      <div class="modal" style="display: none">
-        <img
-          src="./src/images/icon_google_slides_large.png"
-          alt="file_image"
-          class="file-image"
-        />
-        <span class="file-name">Filename.pptx</span>
-        <form class="modal-form">
-          <input
-            class="file-description"
-            type="text"
-            placeholder="수합 완료한 Google Slide 파일 설명을 30자 이내로 입력해주세요."
-          />
-          <div class="modal-form-btns">
-            <button
-              class="modal-form-submit"
-              id="modal_submit"
-              onclick="handleModalSubmit(event)"
-            >
-              <img
-                src="./src/images/button_complete_typing.png"
-                alt="complete"
-              />
-            </button>
-            <button
-              class="modal-form-cancle"
-              id="modal_cancle"
-              onclick="handleModalSubmit(event)"
-            >
-              <img src="./src/images/button_cancel.png" alt="cancle" />
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="background-box" id="background_box">
-      <iframe
-        src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?slide=id.ge5b0daac15_1_0&rm=minimal"
+  <body style="background-color: transparent;">
+    
+    <img class="background-image_v2" id="bg_v2">
+  </img>
+    <img class="background-image_v2" id="bg_v2_twin" style="display: none;">
+</img>
+    
+
+    <!--
+    <div class="background-box" id="background_box" style="display: none;">
+      
+      <iframe 
+        src="https://docs.google.com/presentation/d/1v5cAKcB_HVdTYoFHC7mG_RlUb6TCFFlYpWBMYsfh2hk/preview?slide=id.SLIDES_API33984906_0&rm=minimal"
         frameborder="0"
         allowfullscreen="true"
         mozallowfullscreen="true"
@@ -70,9 +59,11 @@
         class="main-background-image"
         id="background_image_content"
       ></iframe>
+     
     </div>
+     -->
     <center>
-      <header class="header" style="width: 1920px">
+      <header class="header" style="width: 1920px; z-index: 100;">
         <div class="logo">
           <img
             src="./src/images/yestoslide_all_logo.png"
@@ -142,34 +133,21 @@
             <div class="option-toggle off">
               <div class="check-box-options">
                 <span>
-                  <input
-                    id="check_sound"
-                    type="checkbox"
-                    onclick="handleCheckboxEvent(this.id)"
-                  />
+                  <input id="check_sound" type="checkbox" />
                   <label for="check_sound">
                     <span>소리 알림</span>
                     <div class="check_img"></div>
                   </label>
                 </span>
                 <span>
-                  <input
-                    id="check_anonymous"
-                    type="checkbox"
-                    onclick="handleCheckboxEvent(this.id)"
-                  />
+                  <input id="check_anonymous" type="checkbox" />
                   <label for="check_anonymous">
                     <span>익명 표시</span>
                     <div class="check_img"></div>
                   </label>
                 </span>
                 <span>
-                  <input
-                    id="check_message"
-                    type="checkbox"
-                    checked="checked"
-                    onclick="handleCheckboxEvent(this.id)"
-                  />
+                  <input id="check_message" type="checkbox" checked="checked" />
                   <label for="check_message">
                     <span>메시지 게시</span>
                     <div class="check_img"></div>
@@ -292,18 +270,16 @@
       </header>
     </center>
 
-    <main class="main">
+    <main class="main" style="z-index: 100;">
       <div class="contents">
-        <div class="chat-box" id="chat_boxID">
+        <div class="chat-box" id="chat_boxID" >
           <span class="profile">
-            <img
-              id="chat_profileID"
-              src="./src/images/profile.png"
-              alt="profile"
-            />
+            <img id="chat_profileID" src="./src/images/profile.png" alt="profile" />
           </span>
           <span class="name" id="chat_box_name"></span>
-          <span class="chat-content" id="chat_box_comment"> </span>
+          <span class="chat-content" id="chat_box_comment">
+            
+          </span>
         </div>
         <div class="image-box">
           <iframe
@@ -315,8 +291,7 @@
             class="image-content"
             id="image_content"
           ></iframe>
-          <iframe
-            style="display: none"
+          <iframe style="display: none;"
             src=""
             frameborder="0"
             allowfullscreen="true"
@@ -328,27 +303,9 @@
         </div>
       </div>
       <div class="tool-contents">
-        <iframe
-          src="../tunggary/attendance.html"
-          id="attendance_collection"
-          class="attendance-iframe"
-          style="display: none"
-          frameborder="0"
-        ></iframe>
-        <iframe
-          src="../tunggary/image.html"
-          id="img_collection"
-          class="images-iframe"
-          style="display: none"
-          frameborder="0"
-        ></iframe>
-        <iframe
-          src="../tunggary/file.html"
-          id="presentation_collection"
-          class="folders-iframe"
-          style="display: none"
-          frameborder="0"
-        ></iframe>
+        <iframe src="../tunggary/attendance.html" id="attendance_collection" class="attendance-iframe" style="display: none;" frameborder="0"></iframe>
+        <iframe src="../tunggary/image.html" id="img_collection" class="images-iframe" style="display: none;" frameborder="0"></iframe>
+        <iframe src="../tunggary/file.html" id="presentation_collection"  class="folders-iframe" style="display: none;" frameborder="0"></iframe>
       </div>
     </main>
   </body>

@@ -46,18 +46,22 @@
             scrolling="no"
           ></iframe>
           <iframe
+            height="90%"
             class="iframe-cotents"
             id="attendance_collection"
             src="../../tunggary/attendance.html"
             style="display: none"
             frameborder="0"
+            scrolling="no"
           ></iframe>
           <iframe
+            height="90%"
             class="iframe-cotents"
             id="presentation_collection"
             src="../../tunggary/file.html"
             style="display: none"
             frameborder="0"
+            scrolling="no"
           ></iframe>
 
           <!--
@@ -142,7 +146,11 @@
             </div>
           </div>
 
-          <div class="manual_btn"></div>
+          <div
+            class="manual_btn"
+            id="slide_mode"
+            onclick="openToolContents(this.id)"
+          ></div>
           <div
             class="setting_btn"
             id="setting_btn"
@@ -150,14 +158,18 @@
           >
             <img src="mob_controll_img/m_settings_off@2x.png" alt="off" />
           </div>
-          <div class="holding">
-            <img src="mob_controll_img/m_button_showui@2x.png" alt="" />
+          <div
+            class="holding off"
+            id="holding"
+            onclick="openToolContents(this.id)"
+          >
+            <img src="mob_controll_img/button_hideUI_off.svg" alt="" />
           </div>
         </div>
         <div class="direction_box">
-          <div class="pre_btn_box"></div>
+          <div class="pre_btn_box" onclick="navigate_slide('prev')"></div>
           <div style="width: 5%"></div>
-          <div class="next_btn_box"></div>
+          <div class="next_btn_box" onclick="navigate_slide('next')"></div>
         </div>
       </div>
     </div>

@@ -21,10 +21,12 @@ function changeImage(target) {
 }
 
 function openToolSection(target) {
-  document.getElementById('attendance_collection').style.display = 'none';
-  document.getElementById('img_collection').style.display = 'none';
-  document.getElementById('presentation_collection').style.display = 'none';
 
+  
+  document.getElementById('attendance_collection').style.display ="none";
+  document.getElementById('img_collection').style.display ="none";
+  document.getElementById('presentation_collection').style.display ="none";
+  
   const frameAddress = {
     button_openfile: '../tunggary/file.html',
     button_images_videos: '../tunggary/image.html',
@@ -38,36 +40,70 @@ function openToolSection(target) {
 
   if (selectedElement.classList.contains('off')) {
     toolbox.classList.add('open');
-    if (target == 'button_participants') {
-      document.getElementById('attendance_collection').style.display = 'block';
+    if(target =="button_participants")
+    {
+      document.getElementById('attendance_collection').style.display ="block";
 
-      try {
+      try{
         parent.update_attendance_list();
-      } catch (err) {}
-    } else if (target == 'button_images_videos') {
-      document.getElementById('img_collection').style.display = 'block';
-    } else if (target == 'button_openfile') {
-      document.getElementById('presentation_collection').style.display =
-        'block';
-      document
-        .getElementById('presentation_collection')
-        .contentWindow.document.getElementById('fileUl').innerHTML = '';
-      try {
+      }
+      catch(err)
+      {
+
+      }
+      
+    
+   
+    }
+      
+    else if(target =="button_images_videos")
+    {
+      document.getElementById('img_collection').style.display ="block";
+    
+    }
+      
+    else if(target =="button_openfile")
+    {
+      document.getElementById('presentation_collection').style.display ="block";
+      document.getElementById("presentation_collection").contentWindow.document.getElementById("fileUl").innerHTML = "";
+      try{
         parent.open_presentation_folder();
-      } catch (err) {}
+      }
+      catch(err)
+      {
+
+      }
+      
+
     }
     //iFrame.src = frameAddress[target];
   } else {
     toolbox.classList.remove('open');
-    document.getElementById('attendance_collection').style.display = 'none';
-    document.getElementById('img_collection').style.display = 'none';
-    document.getElementById('presentation_collection').style.display = 'none';
+    document.getElementById('attendance_collection').style.display ="none";
+    document.getElementById('img_collection').style.display ="none";
+    document.getElementById('presentation_collection').style.display ="none";
     //iFrame.src = '';
   }
 }
 
-function hideUI() {
+function hideUI(use_fullScreen=true) {
+
   const toolbox = document.querySelector('.tool-contents');
+
+  if(use_fullScreen)
+  {
+    if(document.getElementById("button_hideUI").classList.contains("off"))
+    {
+      parent.sunny.openFullscreen();
+  
+    }
+    else
+    {
+      parent.sunny.closeFullscreen();
+    }
+  }
+  
+
   toolbox.classList.contains('open') && toolbox.classList.remove('open');
 
   //document.querySelector('.attendance-iframe').src = '';
@@ -80,90 +116,44 @@ function hideUI() {
 function closeToolSection(target) {}
 
 function handleSlideBtnClick(btn) {
+
+  if(!document.querySelector('.option-toggle').classList.contains("off") && btn != "settings_btn" )
+  {
+
+    return;
+  }
   switch (btn) {
     case 'slide_back_btn':
-      try {
-        parent.sunny.get_prev_slideID(function (slideId) {
-          if (slideId != -1) {
-            parent.sunny.find_comment_from_spreadsheet_using_google_slideID(
-              slideId,
-              function (info) {
-                if (info.length == 0) {
-                  //alert("no info for this picture");
-                  //parent.sunny.update_main_slide_image(slideId, null,"imageVideoId","chat_boxID","chat_box_name","chat_box_comment","chat_profileID");
-                  parent.sunny.update_main_slide_image(
-                    slideId,
-                    null,
-                    parent.main_iframe,
-                    'image_content',
-                    'chat_boxID',
-                    'chat_box_name',
-                    'chat_box_comment',
-                    'chat_profileID'
-                  );
-                  //return;
-                } else {
-                  console.log(info[0]);
-                  //parent.sunny.update_main_slide_image(slideId, info[0],"imageVideoId","chat_boxID","chat_box_name","chat_box_comment","chat_profileID");
-                  parent.sunny.update_main_slide_image(
-                    slideId,
-                    info[0],
-                    parent.main_iframe,
-                    'image_content',
-                    'chat_boxID',
-                    'chat_box_name',
-                    'chat_box_comment',
-                    'chat_profileID'
-                  );
-                }
-              }
-            );
-          }
+      try
+      {
+        parent.sunny.get_next_or_prev_image("prev",function(idx){
+          if(idx ==-1)
+            return;
+          document.getElementById("img_collection").contentWindow.do_when_click_img(idx);
         });
-      } catch (err) {}
+      }
+      catch(err)
+      {
+        console.log(err.message);
+      }
+        
 
+      
       break;
     case 'slide_next_btn':
-      try {
-        parent.sunny.get_next_slideID(function (slideId) {
-          if (slideId != -1) {
-            parent.sunny.find_comment_from_spreadsheet_using_google_slideID(
-              slideId,
-              function (info) {
-                if (info.length == 0) {
-                  //alert("no info for this picture");
-                  //parent.sunny.update_main_slide_image(slideId, null,"imageVideoId","chat_boxID","chat_box_name","chat_box_comment","chat_profileID");
-                  parent.sunny.update_main_slide_image(
-                    slideId,
-                    null,
-                    parent.main_iframe,
-                    'image_content',
-                    'chat_boxID',
-                    'chat_box_name',
-                    'chat_box_comment',
-                    'chat_profileID'
-                  );
-                  //return;
-                } else {
-                  console.log(info[0]);
-                  //parent.sunny.update_main_slide_image(slideId, info[0],"imageVideoId","chat_boxID","chat_box_name","chat_box_comment","chat_profileID");
-                  parent.sunny.update_main_slide_image(
-                    slideId,
-                    info[0],
-                    parent.main_iframe,
-                    'image_content',
-                    'chat_boxID',
-                    'chat_box_name',
-                    'chat_box_comment',
-                    'chat_profileID'
-                  );
-                }
-              }
-            );
-          }
-          //parent.document.getElementById("imageVideoId").src = "https://docs.google.com/presentation/d/"+parent.sunny.get_current_presentationID()+"/preview?slide=id."+slideId+"&rm=minimal";
+      try
+      {
+        parent.sunny.get_next_or_prev_image("next",function(idx){
+          if(idx ==-1)
+              return;
+          document.getElementById("img_collection").contentWindow.do_when_click_img(idx);
         });
-      } catch (err) {}
+      }
+      catch(err)
+      {
+        console.log(err.message);
+      }
+      
 
       break;
     case 'slide_mode_select_btn':
@@ -175,81 +165,129 @@ function handleSlideBtnClick(btn) {
         image[1].src = `./src/images/tool_box1/auto_hover.svg`;
         selectedBtn.classList.toggle('manual');
         selectedBtn.classList.toggle('auto');
-        try {
+        try{
           parent.set_auto_mode(true);
-        } catch (err) {}
+        }
+        catch(err)
+        {
+
+        }
+        
       } else {
         image[0].src = `./src/images/tool_box1/button-manual-slides-show.svg`;
         image[1].src = `./src/images/tool_box1/manual_hover.svg`;
         selectedBtn.classList.toggle('manual');
         selectedBtn.classList.toggle('auto');
-        try {
+        try{
           parent.set_auto_mode(false);
-        } catch (err) {}
+        }
+        catch(err)
+        {
+
+        }
+        
       }
       break;
     case 'settings_btn':
+      
       document.querySelector('.option-toggle').classList.toggle('off');
+      
       break;
   }
 }
 
 function handleBasicToolsClick(btn) {
-  try {
-    if (parent.sunny == null || !parent.sunny.is_ready_for_everything()) {
-      alert('not ready yet');
+
+  if(!document.querySelector('.option-toggle').classList.contains("off"))
+  {
+
+    return;
+  }
+  try{
+
+    
+    if(  parent.sunny == null  || !parent.sunny.is_ready_for_everything())
+    {
+      alert("not ready yet");
       return;
     }
-  } catch (err) {}
+    
+    
+  }
+  catch(err)
+  {
 
+  }
+
+  
   switch (btn) {
     case 'collecting_btn':
       const selectedBtn = document.querySelector(`#${btn}`);
       const images = selectedBtn.querySelectorAll('img');
       if (selectedBtn.classList.contains('off')) {
-        var r = confirm('start collecting?');
+        
+        
+
+        var r = confirm("start collecting?");
         if (r == true) {
+          
           images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
           images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
           selectedBtn.classList.toggle('off');
-          try {
-            parent.document
-              .getElementById('sunny_spinner')
-              .classList.remove('d-none');
-            document.getElementById('image_content').src = '';
+          try{
+            parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+            document.getElementById("image_content").src = "";
             //parent.sunny.createNewPresentaion(function(rst){
-            //if(rst)
-            //{
-            //  document.getElementById("image_content").src = "";
+              //if(rst)
+              //{
+              //  document.getElementById("image_content").src = "";
+                
 
-            //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
-            //}
-            ///else
-            //{
-            //  alert("fail to create slides");
-            //}
-
+              //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
+              //}
+              ///else
+              //{
+              //  alert("fail to create slides");
+              //}
+              
             //});
-            setTimeout(
-              parent.check_login_status_for_both_google_and_firebase,
-              1000
-            );
-          } catch (err) {}
+
+            
+            parent.sunny.erase_working_sheet();
+            setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
+          }
+          catch(err)
+          {
+
+          }
+        
+          
         } else {
           return;
         }
+        
+    
+        
       } else {
-        var r = confirm('stop collecting?');
+
+        var r = confirm("stop collecting?");
         if (r == true) {
           images[0].src = `./src/images/tool_box2/button_collecting_off.svg`;
           images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
           selectedBtn.classList.toggle('off');
           parent.sunny.stop_collecting();
-        } else {
+          
+        }
+        else
+        {
+      
           return;
         }
-      }
 
+      
+       
+      }
+       
       break;
 
     case 'button_openfile':
@@ -273,54 +311,31 @@ function handleBasicToolsClick(btn) {
       break;
 
     case `button_hideUI`:
-      changeImage(btn);
+      
       hideUI();
+      changeImage(btn);
+      
       break;
   }
 }
-
-function handleCheckboxEvent(id) {
-  switch (id) {
-    case 'check_sound':
-      break;
-    case 'check_anonymous':
-      break;
-    case 'check_message':
-      const checkBox = document.querySelector('#check_message');
-      const chatBox = document.querySelector('.chat-box');
-
-      checkBox.checked
-        ? (chatBox.style.display = 'flex')
-        : (chatBox.style.display = 'none');
-
-      break;
+function control_hide(mode)
+{
+  if(mode)
+  {
+    if(!document.getElementById("button_hideUI").classList.contains("off"))
+    {
+      return;
+    }
   }
-}
-
-function modalOn() {
-  const modalOverlay = document.querySelector('.modal-overlay');
-  const modal = document.querySelector('.modal');
-
-  modalOverlay.style.display = 'flex';
-  modal.style.display = 'flex';
-}
-
-function modalOff() {
-  const modalOverlay = document.querySelector('.modal-overlay');
-  const modal = document.querySelector('.modal');
-
-  modalOverlay.style.display = 'none';
-  modal.style.display = 'none';
-}
-
-function handleModalSubmit(e) {
-  e.preventDefault();
-
-  if (e.currentTarget.id === 'modal_cancle') {
-    console.log('cancle');
-  } else {
-    console.log('submit');
+  else
+  {
+    if(document.getElementById("button_hideUI").classList.contains("off"))
+    {
+      return;
+    }
   }
-
-  modalOff();
+  hideUI(false);
+  changeImage("button_hideUI");
+  
+  
 }
