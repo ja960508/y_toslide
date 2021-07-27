@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./src/css/index.css" />
     <link rel="stylesheet" href="./src/css/header.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/modal.css" />
     <script defer src="./src/js/index.js"></script>
     <script defer src="./src/js/background_control.js"></script>
     
@@ -45,7 +46,42 @@
   </img>
     <img class="background-image_v2" id="bg_v2_twin" style="display: none;">
 </img>
-    
+<div class="modal-overlay" style="display: none">
+  <div class="modal" style="display: none">
+    <img
+      src="./src/images/icon_google_slides_large.png"
+      alt="file_image"
+      class="file-image"
+    />
+    <span class="file-name">Filename.pptx</span>
+    <form class="modal-form">
+      <input
+        class="file-description"
+        type="text"
+        placeholder="수합 완료한 Google Slide 파일 설명을 30자 이내로 입력해주세요."
+      />
+      <div class="modal-form-btns">
+        <button
+          class="modal-form-submit"
+          id="modal_submit"
+          onclick="handleModalSubmit(event)"
+        >
+          <img
+            src="./src/images/button_complete_typing.png"
+            alt="complete"
+          />
+        </button>
+        <button
+          class="modal-form-cancle"
+          id="modal_cancle"
+          onclick="handleModalSubmit(event)"
+        >
+          <img src="./src/images/button_cancel.png" alt="cancle" />
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
     <!--
     <div class="background-box" id="background_box" style="display: none;">
