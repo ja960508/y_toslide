@@ -1,11 +1,13 @@
 function changeBackground(mode) {
+  
   const btns = document.querySelectorAll('.background-mode-btn');
   const selectedBtn = document
     .querySelector('.background-mode-options')
     .querySelector('.selected');
   const contentImageSource = document.getElementById('image_content').src;
-  const backgroundImage = document.getElementById('background_image_content');
-  const background = document.getElementById('background_box');
+  const backgroundImage = document.getElementById('bg_v2');
+  const backgroundImage_twin = document.getElementById('bg_v2_twin');
+  //const background = document.getElementById('background_box');
 
   if (selectedBtn.id !== mode) {
     btns.forEach((btn) => {
@@ -14,18 +16,24 @@ function changeBackground(mode) {
         : btn.classList.remove('selected');
     });
 
+    
     switch (mode) {
+      
       case 'background_blur':
         backgroundImage.src = contentImageSource;
-        background.style.backgroundColor = 'white';
+        backgroundImage_twin.src = contentImageSource;
+        //background.style.backgroundColor = 'white';
         break;
       case 'background_black':
-        backgroundImage.src = '';
-        background.style.backgroundColor = 'black';
+        backgroundImage.src = './src/images/black.jpg';
+        backgroundImage_twin.src  = './src/images/black.jpg';
+        //background.style.backgroundColor = 'black';
         break;
       case 'background_white':
-        backgroundImage.src = '';
-        background.style.backgroundColor = 'white';
+        backgroundImage.src = './src/images/white.jpg';
+        backgroundImage_twin.src  = './src/images/white.jpg';
+        //background.style.backgroundColor = 'black';
+        
         break;
     }
   }

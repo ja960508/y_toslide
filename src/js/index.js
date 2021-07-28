@@ -20,12 +20,16 @@ function changeImage(target) {
   }
 }
 
-function openToolSection(target) {
-
-  
+function closeAllTool()
+{
   document.getElementById('attendance_collection').style.display ="none";
   document.getElementById('img_collection').style.display ="none";
   document.getElementById('presentation_collection').style.display ="none";
+}
+function openToolSection(target) {
+
+  
+  closeAllTool();
   
   const frameAddress = {
     button_openfile: '../tunggary/file.html',
@@ -116,6 +120,15 @@ function hideUI(use_fullScreen=true) {
 function closeToolSection(target) {}
 
 function handleSlideBtnClick(btn) {
+  
+
+
+  if(  parent.sunny == null  || !parent.sunny.is_ready_for_everything())
+  {
+    alert("not ready yet");
+    return;
+  }
+  document.getElementById("guide_div").style.display = "none"; 
 
   if(!document.querySelector('.option-toggle').classList.contains("off") && btn != "settings_btn" )
   {
@@ -190,6 +203,7 @@ function handleSlideBtnClick(btn) {
       break;
     case 'settings_btn':
       
+      closeAllTool();
       document.querySelector('.option-toggle').classList.toggle('off');
       
       break;
@@ -211,6 +225,7 @@ function handleBasicToolsClick(btn) {
       alert("not ready yet");
       return;
     }
+    document.getElementById("guide_div").style.display = "none"; 
     
     
   }
@@ -231,11 +246,24 @@ function handleBasicToolsClick(btn) {
         var r = confirm("start collecting?");
         if (r == true) {
           
+          parent.sunny.ask_for_informaion_for_new_collecting(function(rst){
+
+            if(rst)
+            {
+
+              //parent.sunny.update_explanation(true);
+              
+            }
+            else
+            {
+              return;
+            }
+          });
           images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
           images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
           selectedBtn.classList.toggle('off');
           try{
-            parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+            //parent.document.getElementById("sunny_spinner").classList.remove("d-none");
             document.getElementById("image_content").src = "";
             //parent.sunny.createNewPresentaion(function(rst){
               //if(rst)
@@ -253,12 +281,31 @@ function handleBasicToolsClick(btn) {
             //});
 
             
-            parent.sunny.erase_working_sheet();
-            setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
+            
+            //alert(parent.sunny.get_unused_presentation_ready());
+            if(!parent.sunny.get_unused_presentation_ready())
+            {
+              
+              parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+              parent.sunny.erase_working_sheet();
+              //parent.sunny.set_main_slides_ready_immediately(true);
+              setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
+              
+            }
+            else
+            {
+              parent.sunny.update_explanation();
+              parent.sunny.set_unused_presentation_ready(false);
+              //parent.sunny.set_main_slides_ready_immediately(false);
+            }
+            parent.sunny.set_collecting_flag(true);
+            
+            
           }
           catch(err)
           {
 
+            console.log(err.message);
           }
         
           
@@ -272,10 +319,13 @@ function handleBasicToolsClick(btn) {
 
         var r = confirm("stop collecting?");
         if (r == true) {
-          images[0].src = `./src/images/tool_box2/button_collecting_off.svg`;
-          images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
-          selectedBtn.classList.toggle('off');
-          parent.sunny.stop_collecting();
+          selectedBtn.disabled = true;
+          parent.sunny.stop_collecting(function(rst){
+            images[0].src = `./src/images/tool_box2/button_collecting_off.svg`;
+            images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
+            selectedBtn.classList.toggle('off');
+            selectedBtn.disabled = false;
+          });
           
         }
         else
@@ -287,6 +337,7 @@ function handleBasicToolsClick(btn) {
       
        
       }
+       
        
       break;
 
