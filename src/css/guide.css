@@ -2,20 +2,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--ice-blue);
+  background-color: #f6f6f8;
 }
 
 .main {
   text-align: center;
   width: 100%;
   height: 100%;
-  background-image: url('../images/how-to-use-blank.png');
-  background-size: cover;
+  position: relative;
 }
 
 .coordinator-gmail {
+  position: relative;
+  top: 24%;
+
   font-family: NanumSquareRoundOTF;
-  font-size: 32px;
+  font-size: 1.6vw;
   font-weight: 800;
   font-stretch: normal;
   font-style: normal;
@@ -23,4 +25,13 @@ body {
   letter-spacing: normal;
   text-align: center;
   color: var(--dusty-orange);
+}
+
+.how-to-use-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
 }
