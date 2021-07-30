@@ -16,8 +16,14 @@
 
 .version {
   position: relative;
-  bottom: 0.6rem;
-  font-size: 0.8rem;
+  bottom: 0.5rem;
+  font-size: 12px;
+  font-weight: bold;
+
+  border-radius: 9px;
+  background-color: white;
+  color: var(--terra-cota);
+  padding: 1px 6px;
 }
 
 .tools {
