@@ -125,7 +125,8 @@ function handleSlideBtnClick(btn) {
 
   if(  parent.sunny == null  || !parent.sunny.is_ready_for_everything())
   {
-    alert("not ready yet");
+    //alert("not ready yet");
+    parent.sunny_modal.show_alert_only("not ready yet");
     return;
   }
   document.getElementById("guide_div").style.display = "none"; 
@@ -220,11 +221,12 @@ function handleBasicToolsClick(btn) {
   try{
 
     
-    if(  parent.sunny == null  || !parent.sunny.is_ready_for_everything())
-    {
-      alert("not ready yet");
-      return;
-    }
+  if(  parent.sunny == null  || !parent.sunny.is_ready_for_everything())
+  {
+    parent.sunny_modal.show_alert_only("not ready yet");
+    return;
+    
+  }
     document.getElementById("guide_div").style.display = "none"; 
     
     
@@ -241,7 +243,79 @@ function handleBasicToolsClick(btn) {
       const images = selectedBtn.querySelectorAll('img');
       if (selectedBtn.classList.contains('off')) {
         
-        
+        parent.sunny_modal.ask_for_start_collecting(do_ask_for_start_collecting,parent.sunny_modal.cancel_clicked,function(rst)
+        {
+
+          return;
+          if(rst)
+          {
+            parent.sunny.ask_for_informaion_for_new_collecting(function(rst){
+
+              if(rst)
+              {
+  
+                //parent.sunny.update_explanation(true);
+                images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
+                images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
+                selectedBtn.classList.toggle('off');
+                try{
+                  //parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+                  document.getElementById("image_content").src = "";
+                  //parent.sunny.createNewPresentaion(function(rst){
+                    //if(rst)
+                    //{
+                    //  document.getElementById("image_content").src = "";
+                      
+      
+                    //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
+                    //}
+                    ///else
+                    //{
+                    //  alert("fail to create slides");
+                    //}
+                    
+                  //});
+      
+                  
+                  
+                  //alert(parent.sunny.get_unused_presentation_ready());
+                  if(!parent.sunny.get_unused_presentation_ready())
+                  {
+                    
+                    parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+                    parent.sunny.erase_working_sheet();
+                    //parent.sunny.set_main_slides_ready_immediately(true);
+                    setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
+                    
+                  }
+                  else
+                  {
+                    parent.sunny.update_explanation();
+                    parent.sunny.set_unused_presentation_ready(false);
+                    //parent.sunny.set_main_slides_ready_immediately(false);
+                  }
+                  parent.sunny.set_collecting_flag(true);
+                  
+                  
+                }
+                catch(err)
+                {
+      
+                  console.log(err.message);
+                }
+                
+              }
+              else
+              {
+                
+                return;
+              }
+            });            
+          }
+          
+        });
+
+        return;
 
         var r = confirm("start collecting?");
         if (r == true) {
@@ -252,61 +326,63 @@ function handleBasicToolsClick(btn) {
             {
 
               //parent.sunny.update_explanation(true);
+              images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
+              images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
+              selectedBtn.classList.toggle('off');
+              try{
+                //parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+                document.getElementById("image_content").src = "";
+                //parent.sunny.createNewPresentaion(function(rst){
+                  //if(rst)
+                  //{
+                  //  document.getElementById("image_content").src = "";
+                    
+    
+                  //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
+                  //}
+                  ///else
+                  //{
+                  //  alert("fail to create slides");
+                  //}
+                  
+                //});
+    
+                
+                
+                //alert(parent.sunny.get_unused_presentation_ready());
+                if(!parent.sunny.get_unused_presentation_ready())
+                {
+                  
+                  parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+                  parent.sunny.erase_working_sheet();
+                  //parent.sunny.set_main_slides_ready_immediately(true);
+                  setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
+                  
+                }
+                else
+                {
+                  parent.sunny.update_explanation();
+                  parent.sunny.set_unused_presentation_ready(false);
+                  //parent.sunny.set_main_slides_ready_immediately(false);
+                }
+                parent.sunny.set_collecting_flag(true);
+                
+                
+              }
+              catch(err)
+              {
+    
+                console.log(err.message);
+              }
               
             }
             else
             {
+              
               return;
             }
           });
-          images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
-          images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
-          selectedBtn.classList.toggle('off');
-          try{
-            //parent.document.getElementById("sunny_spinner").classList.remove("d-none");
-            document.getElementById("image_content").src = "";
-            //parent.sunny.createNewPresentaion(function(rst){
-              //if(rst)
-              //{
-              //  document.getElementById("image_content").src = "";
-                
-
-              //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
-              //}
-              ///else
-              //{
-              //  alert("fail to create slides");
-              //}
-              
-            //});
-
-            
-            
-            //alert(parent.sunny.get_unused_presentation_ready());
-            if(!parent.sunny.get_unused_presentation_ready())
-            {
-              
-              parent.document.getElementById("sunny_spinner").classList.remove("d-none");
-              parent.sunny.erase_working_sheet();
-              //parent.sunny.set_main_slides_ready_immediately(true);
-              setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
-              
-            }
-            else
-            {
-              parent.sunny.update_explanation();
-              parent.sunny.set_unused_presentation_ready(false);
-              //parent.sunny.set_main_slides_ready_immediately(false);
-            }
-            parent.sunny.set_collecting_flag(true);
-            
-            
-          }
-          catch(err)
-          {
-
-            console.log(err.message);
-          }
+         
         
           
         } else {
@@ -317,6 +393,12 @@ function handleBasicToolsClick(btn) {
         
       } else {
 
+       
+        parent.sunny_modal.ask_for_stop_collecting(do_ask_for_stop_collecting,parent.sunny_modal.cancel_clicked,function()
+        {
+
+        });
+        return;
         var r = confirm("stop collecting?");
         if (r == true) {
           selectedBtn.disabled = true;
@@ -369,6 +451,19 @@ function handleBasicToolsClick(btn) {
       break;
   }
 }
+function just_change_collecting_btn(starting)
+{
+  const selectedBtn = document.querySelector('#collecting_btn');
+  const images = selectedBtn.querySelectorAll('img');
+  if(starting)
+  {
+    images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
+    images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
+    selectedBtn.classList.toggle('off');
+    parent.sunny.set_stopped_collecting(!starting);
+  }
+  
+}
 function control_hide(mode)
 {
   if(mode)
@@ -389,4 +484,97 @@ function control_hide(mode)
   changeImage("button_hideUI");
   
   
+}
+
+function do_ask_for_stop_collecting()
+{
+  parent.sunny_modal.set_modal_btn_clicked(true);
+
+  const selectedBtn = document.querySelector(`#collecting_btn`);
+  const images = selectedBtn.querySelectorAll('img');
+  selectedBtn.disabled = true;
+  parent.sunny.stop_collecting(function(rst){
+    images[0].src = `./src/images/tool_box2/button_collecting_off.svg`;
+    images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
+    selectedBtn.classList.toggle('off');
+    selectedBtn.disabled = false;
+  });
+}
+
+function do_ask_for_start_collecting()
+{
+ 
+  parent.sunny_modal.set_modal_btn_clicked(true);
+
+  setTimeout(() => {
+    const selectedBtn = document.querySelector(`#collecting_btn`);
+    const images = selectedBtn.querySelectorAll('img');
+    parent.sunny_modal.ask_for_informaion_for_new_collecting(function(rst){
+  
+      if(rst)
+      {
+  
+        //parent.sunny.update_explanation(true);
+        images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
+        images[1].src = `./src/images/tool_box2/collecting_hover.svg`;
+        selectedBtn.classList.toggle('off');
+        try{
+          //parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+          document.getElementById("image_content").src = "";
+          //parent.sunny.createNewPresentaion(function(rst){
+            //if(rst)
+            //{
+            //  document.getElementById("image_content").src = "";
+              
+  
+            //  setTimeout(parent.check_login_status_for_both_google_and_firebase ,3000);
+            //}
+            ///else
+            //{
+            //  alert("fail to create slides");
+            //}
+            
+          //});
+  
+          
+          
+          //alert(parent.sunny.get_unused_presentation_ready());
+          if(!parent.sunny.get_unused_presentation_ready())
+          {
+            
+            parent.document.getElementById("sunny_spinner").classList.remove("d-none");
+            parent.sunny.erase_working_sheet();
+            //parent.sunny.set_main_slides_ready_immediately(true);
+            parent.sunny.set_ready_for_everything(false);
+            setTimeout(parent.check_login_status_for_both_google_and_firebase ,1000);
+            
+          }
+          else
+          {
+            
+            parent.sunny.update_explanation();
+            parent.sunny.set_unused_presentation_ready(false);
+            //parent.sunny.set_main_slides_ready_immediately(false);
+          }
+          parent.sunny.set_collecting_flag(true);
+          
+          
+        }
+        catch(err)
+        {
+  
+          console.log(err.message);
+        }
+        
+      }
+      else
+      {
+        
+        return;
+      }
+    });  
+    
+  }, 1000);
+  
+
 }
