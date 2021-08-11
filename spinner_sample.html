@@ -1,38 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
 
     <title>Hello, world!</title>
   </head>
   <body>
     <!--스피너 loading 표시-->
-    <div class="d-flex justify-content-center" id="sunny_spinner" style="position: absolute;left:0px;top:0px;right:0px;bottom:0px;">
-      <div style="position: absolute;right:0px;top:0px;left:0px; width: 100vw;height: 100vh;background-color: transparent;">
-      <!--click 방지 하기 위한 div-->
+    <div
+      class="d-flex justify-content-center"
+      id="sunny_spinner"
+      style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px"
+    >
+      <div
+        style="
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          left: 0px;
+          width: 100vw;
+          height: 100vh;
+          background-color: #f1f3f4;
+        "
+      >
+        <!--click 방지 하기 위한 div-->
       </div>
-      <div class="d-flex justify-content-center "  style="position: absolute;top: 50%;">
-        <center>
-          <span id="spinner_label" style="color:blueviolet;background-color:red;font-size: 20px;font-weight: bold;"><p>준비중...</p></span>
-          <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
+      <div
+        class="d-flex justify-content-center"
+        style="
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          border-radius: 26px;
+          background-color: white;
+          width: 200px;
+          height: 200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div
+          class="spinner-border"
+          role="status"
+          style="
+            width: 5rem;
+            height: 5rem;
+            margin-bottom: 16px;
+            border: solid 6px #f1f3f4;
+            border-right-color: #f28234;
+          "
+        >
           <!--<span class="visually-hidden">Loading...</span>-->
-          </div>
-        </center>
-        
-      
-      
-    </div>
+        </div>
+        <span
+          id="spinner_label"
+          style="color: black; font-size: 18px; font-weight: bold"
+          >준비중...</span
+        >
+      </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
