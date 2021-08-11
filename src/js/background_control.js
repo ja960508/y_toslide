@@ -16,7 +16,14 @@ function changeBackground(mode) {
         : btn.classList.remove('selected');
     });
 
-    
+    if (typeof(Storage) !== "undefined") {
+      localStorage.setItem("yestoslide_blur_mode", mode);
+
+      console.log(localStorage.getItem("yestoslide_blur_mode"));
+      
+    } 
+
+
     switch (mode) {
       
       case 'background_blur':

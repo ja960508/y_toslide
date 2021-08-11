@@ -22,6 +22,33 @@ function changeImage(target) {
 
 function closeAllTool()
 {
+  var selectedBtn = document.querySelector(`#button_openfile`);
+
+  if (!selectedBtn.classList.contains('off'))
+  {
+    var image = selectedBtn.querySelector('img');
+    image.src = `./src/images/tool_box2/button_openfile_off.svg`;
+    selectedBtn.classList.toggle('off');
+  }
+  
+  selectedBtn = document.querySelector(`#button_images_videos`);
+
+  if (!selectedBtn.classList.contains('off'))
+  {
+    var image = selectedBtn.querySelector('img');
+    image.src = `./src/images/tool_box2/button_images_videos_off.svg`;
+    selectedBtn.classList.toggle('off');
+  }
+
+  selectedBtn = document.querySelector(`#button_participants`);
+
+  if (!selectedBtn.classList.contains('off'))
+  {
+    var image = selectedBtn.querySelector('img');
+    image.src = `./src/images/tool_box2/button_participants_off.svg`;
+    selectedBtn.classList.toggle('off');
+  }
+
   document.getElementById('attendance_collection').style.display ="none";
   document.getElementById('img_collection').style.display ="none";
   document.getElementById('presentation_collection').style.display ="none";
@@ -29,7 +56,7 @@ function closeAllTool()
 function openToolSection(target) {
 
   
-  closeAllTool();
+  //closeAllTool();
   
   const frameAddress = {
     button_openfile: '../tunggary/file.html',
@@ -47,6 +74,9 @@ function openToolSection(target) {
     if(target =="button_participants")
     {
       document.getElementById('attendance_collection').style.display ="block";
+     
+    document.getElementById('img_collection').style.display ="none";
+    document.getElementById('presentation_collection').style.display ="none";
 
       try{
         parent.update_attendance_list();
@@ -63,12 +93,18 @@ function openToolSection(target) {
     else if(target =="button_images_videos")
     {
       document.getElementById('img_collection').style.display ="block";
+      document.getElementById('attendance_collection').style.display ="none";
+   
+    document.getElementById('presentation_collection').style.display ="none";
     
     }
       
     else if(target =="button_openfile")
     {
       document.getElementById('presentation_collection').style.display ="block";
+      document.getElementById('attendance_collection').style.display ="none";
+    document.getElementById('img_collection').style.display ="none";
+   
       document.getElementById("presentation_collection").contentWindow.document.getElementById("fileUl").innerHTML = "";
       try{
         parent.open_presentation_folder();
@@ -180,7 +216,7 @@ function handleSlideBtnClick(btn) {
         selectedBtn.classList.toggle('manual');
         selectedBtn.classList.toggle('auto');
         try{
-          parent.set_auto_mode(true);
+          parent.set_auto_mode(true,"chat_boxID");
         }
         catch(err)
         {
@@ -207,10 +243,52 @@ function handleSlideBtnClick(btn) {
       closeAllTool();
       document.querySelector('.option-toggle').classList.toggle('off');
       
+      if (typeof(Storage) !== "undefined") {
+        
+        var mode = localStorage.getItem("yestoslide_blur_mode");
+        //console.log(mode);
+        try
+        {
+          if( mode.toString().indexOf("background") != -1)
+          {
+            changeBackground(localStorage.getItem("yestoslide_blur_mode"));
+          }
+        }
+        catch(err)
+        {
+
+        }
+        
+        
+        
+      } 
       break;
   }
 }
 
+function change_to_manual_mode()
+{
+  const selectedBtn = document.querySelector(`#slide_mode_select_btn`);
+  const image = selectedBtn.querySelectorAll('img');
+
+  
+  if (selectedBtn.classList.contains('manual')) 
+    return;
+
+
+  console.log("change_to_manual_mode");
+  image[0].src = `./src/images/tool_box1/button-manual-slides-show.svg`;
+  image[1].src = `./src/images/tool_box1/manual_hover.svg`;
+  selectedBtn.classList.toggle('manual');
+  selectedBtn.classList.toggle('auto');
+  try{
+    parent.set_auto_mode(false);
+  }
+  catch(err)
+  {
+
+  }
+}
 function handleBasicToolsClick(btn) {
 
   if(!document.querySelector('.option-toggle').classList.contains("off"))
@@ -577,4 +655,16 @@ function do_ask_for_start_collecting()
   }, 1000);
   
 
+}
+
+window.onload = function(){
+  var old_version = document.getElementById('version').innerHTML;
+  check_version_v3("../../js/version_v3.txt",old_version,"index_main",function(rst){
+    if(rst =="ignore")
+      console.log(" index_main 버전 업그레이드 해주세요");
+    else if(rst=="fail")
+    {
+      location.reload();
+    }  
+  });
 }

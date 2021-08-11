@@ -67,6 +67,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-family: "Roboto";
   font-size: 18px;
   font-weight: bold;
 }
