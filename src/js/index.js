@@ -324,6 +324,7 @@ function handleBasicToolsClick(btn) {
         parent.sunny_modal.ask_for_start_collecting(do_ask_for_start_collecting,parent.sunny_modal.cancel_clicked,function(rst)
         {
 
+
           return;
           if(rst)
           {
@@ -564,10 +565,8 @@ function control_hide(mode)
   
 }
 
-function do_ask_for_stop_collecting()
+function do_stop_collecting(callback)
 {
-  parent.sunny_modal.set_modal_btn_clicked(true);
-
   const selectedBtn = document.querySelector(`#collecting_btn`);
   const images = selectedBtn.querySelectorAll('img');
   selectedBtn.disabled = true;
@@ -576,7 +575,16 @@ function do_ask_for_stop_collecting()
     images[1].src = `./src/images/tool_box2/collecting_stop_hover.svg`;
     selectedBtn.classList.toggle('off');
     selectedBtn.disabled = false;
+    callback(true);
   });
+}
+function do_ask_for_stop_collecting()
+{
+  parent.sunny_modal.set_modal_btn_clicked(true);
+  do_stop_collecting(function(rst){
+    
+  });
+  
 }
 
 function do_ask_for_start_collecting()
@@ -592,6 +600,7 @@ function do_ask_for_start_collecting()
       if(rst)
       {
   
+        parent.sunny.clear_when_create_new_presentation();
         //parent.sunny.update_explanation(true);
         images[0].src = `./src/images/tool_box2/button_collecting_on.svg`;
         images[1].src = `./src/images/tool_box2/collecting_hover.svg`;

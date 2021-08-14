@@ -74,11 +74,53 @@ function openToolContents(id) {
     case 'ptct_btn':
       document.getElementById('attendance_collection').style.display = 'block';
 
-      parent.update_attendance_list();
+      //parent.update_attendance_list();
+      parent.sunny_attendances.update_attendance_list();
       call_height_adjust();
       break;
     case 'setting_btn':
       document.querySelector('.option_bottom').classList.toggle('off');
       break;
   }
+}
+
+var current_collecting_status = false;
+function update_collecting_btn(is_starting)
+{
+  
+  current_collecting_status = is_starting;
+  if(is_starting)
+  {
+
+    document.getElementById("collecting_img").src = "mob_controll_img/button_collecting_on@2x.png" ;
+    console.log("collecting btn:",is_starting);
+  }
+  else
+  {
+    document.getElementById("collecting_img").src = "mob_controll_img/button_collecting_off@2x.png" ;
+    console.log("collecting btn:",is_starting);
+  }
+}
+function stop_collecting()
+{
+  
+  parent.sunny_modal.set_modal_btn_clicked(true);
+  parent.sunny.stop_collecting_by_controller(false);
+}
+function do_collecting()
+{
+  if(current_collecting_status)
+  {
+
+    console.log("stop collecting");
+    parent.sunny_modal.ask_for_stop_collecting(stop_collecting,null,function()
+    {
+
+    });
+  }
+  else
+  {
+    alert("please use this function in pc")
+  }
+
 }
