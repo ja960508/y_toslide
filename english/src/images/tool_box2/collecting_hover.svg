@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="if_hover_menu" width="76" height="39" viewBox="0 0 76 39">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;opacity:.802}
+        </style>
+    </defs>
+    <path id="빼기_18" d="M72.916 5.828H61.25l4.418-4.414a2 2 0 0 1 2.829 0l4.417 4.413z" class="cls-1" transform="translate(-29.25 -0.829)"/>
+    <g id="구성_요소_104_1" transform="translate(0 5)">
+        <rect id="사각형_1705" width="76" height="34" class="cls-1" rx="17"/>
+        <text id="수합중" fill="#313233" font-family="AppleSDGothicNeo-Bold, Apple SD Gothic Neo" font-size="16px" font-weight="700" transform="translate(38 23)">
+            <tspan x="-20.76" y="0">수합중</tspan>
+        </text>
+    </g>
+</svg>

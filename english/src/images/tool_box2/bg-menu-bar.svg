@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="bg_menuBar" width="188" height="34" viewBox="0 0 188 34">
+    <defs>
+        <style>
+            .cls-2{fill:#313233;opacity:.601}
+        </style>
+    </defs>
+    <rect id="사각형_1454" width="188" height="34" fill="#fff" opacity="0.8" rx="17"/>
+    <path id="사각형_1635" d="M0 0H1V14H0z" class="cls-2" transform="translate(118 10)"/>
+    <path id="사각형_1636" d="M0 0H1V14H0z" class="cls-2" transform="translate(153 10)"/>
+</svg>

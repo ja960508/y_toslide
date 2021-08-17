@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="button_collecting_off" width="50" height="34" viewBox="0 0 50 34">
+    <defs>
+        <style>
+            .cls-2{fill:#313233}
+        </style>
+    </defs>
+    <g id="그룹_3360" transform="translate(-2782 -1274)">
+        <path id="빼기_12" d="M24 20H10a10 10 0 0 1 0-20h14a10 10 0 1 1 0 20zM10 2a8 8 0 0 0 0 16h14a8 8 0 0 0 0-16z" class="cls-2" transform="translate(2790 1281)"/>
+        <circle id="타원_31" cx="6" cy="6" r="6" class="cls-2" transform="translate(2794 1285)"/>
+    </g>
+</svg>

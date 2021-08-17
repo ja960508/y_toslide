@@ -1,0 +1,101 @@
+.main {
+  width: 100vw;
+  height: 76vh;
+  min-width: 1920px;
+  min-height: 823px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contents {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.chat-box {
+  margin-top: 17px;
+  position: absolute;
+  width: 750px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 13px 27px;
+}
+
+.chat-box::before {
+  content: '';
+  background-image: url(../images/chatbox_background.svg);
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.profile,
+.name,
+.chat-content {
+  position: relative;
+}
+
+.profile {
+  width: 34px;
+  height: 34px;
+  margin-right: 8px;
+}
+
+.profile img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 18px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.chat-content {
+  flex: 1 1 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.image-box {
+  width: 1463px;
+  height: 823px;
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+.image-content {
+  pointer-events: none;
+  width: 1468px;
+  height: 826px;
+}
+
+/* hide mode */
+.main.hide-mode {
+  height: 100vh;
+  min-height: 947px;
+}
+.main.hide-mode .image-box {
+  width: 1683px;
+  height: 947px;
+}
+
+.main.hide-mode .image-content {
+  width: 1688px;
+  height: 950px;
+}
